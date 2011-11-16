@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>libheaven</groupId>
+	<artifactId>marc4s</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<scala.version>2.9.1</scala.version>
+	</properties>
+	<build>
+		<plugins>
+		<plugin>
+			<groupId>org.scala-tools</groupId>
+			<artifactId>maven-scala-plugin</artifactId>
+			<version>2.14</version>
+			<configuration>
+				<jvmArgs>
+					<jvmArg>-Xmx1024m</jvmArg>
+				</jvmArgs>
+			</configuration>
+			<executions>
+				<execution>
+					<id>scala-compile-first</id>
+					<phase>process-resources</phase>
+					<goals>
+						<goal>add-source</goal>
+						<goal>compile</goal>
+					</goals>
+				</execution>
+				<execution>
+					<id>scala-test-compile</id>
+					<phase>process-test-resources</phase>
+					<goals>
+						<goal>testCompile</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
+		<plugin>
+			<groupId>com.jteigen</groupId>
+			<artifactId>maven-scalatest-plugin</artifactId>
+			<version>1.1-SNAPSHOT</version>
+		</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.3.1</version>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>marc4j</groupId>
+			<artifactId>marc4j</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+		<!-- Scala stuff -->
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-library</artifactId>
+			<version>${scala.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-compiler</artifactId>
+			<version>${scala.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Test stuff -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>scala-tools.releases</id>
+			<name>Scala-Tools Dependencies Repository for Releases</name>
+			<url>http://scala-tools.org/repo-releases</url>
+		</repository>
+		<repository>
+			<id>scala-tools.org-snapshot</id>
+			<name>Scala-Tools Dependencies Repository for Snapshots</name>
+			<url>http://scala-tools.org/repo-snapshots</url>
+		</repository>
+		<repository>
+			<id>k-int</id>
+			<url>http://developer.k-int.com/maven2/</url>
+		</repository>
+	</repositories>
+</project>
