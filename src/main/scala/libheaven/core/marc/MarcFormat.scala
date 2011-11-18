@@ -4,5 +4,6 @@ object MarcFormat {
   
   val MARC21 = "MARC21"
   val RUSMARC = "RUSMARC"
+  val AUTH = "AUTH"
 
 }

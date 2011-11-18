@@ -1,7 +1,6 @@
 package libheaven.core.marc
 
-import _root_.org.marc4j.MarcStreamWriter
-import libheaven.core.marc._
+import org.marc4j.MarcStreamWriter
 
 class MarcWriter(val writer: MarcStreamWriter) {
 

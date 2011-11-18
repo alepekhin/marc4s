@@ -14,8 +14,8 @@ class DataField(val tag: String, val ind1: Char, val ind2: Char, val subfields: 
   assert(validIndicators.contains(ind2), "Invalid indicator")
 
   def getSubfield(code: Char): List[Subfield] = {
-    val result = List[Subfield]()
-    subfields foreach (x => if (x.code.equals(code)) x :: result)
+    var result = List[Subfield]()
+    subfields foreach (x => if (x.code.equals(code)) result = x :: result)
     return result
   }
 
