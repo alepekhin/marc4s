@@ -16,7 +16,7 @@ class DataField(val tag: String, val ind1: Char, val ind2: Char, val subfields: 
   def getSubfield(code: Char): List[Subfield] = {
     var result = List[Subfield]()
     subfields foreach (x => if (x.code.equals(code)) result = x :: result)
-    return result
+    result
   }
 
   override def toString(): String = {
